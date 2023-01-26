@@ -32,4 +32,20 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   }
 };
 
-export {createPages}
+const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
+  const { createTypes } = actions;
+
+  //Create manual type definition in order to get Gatsby to build
+  const typeDefs = `
+      type ContentfulBlogPost {
+        theDoggos: [ContentfulDog]
+      }
+      type ContentfulDog {
+          name: String
+      }
+  `;
+
+  createTypes(typeDefs);
+};
+
+export {createPages, createSchemaCustomization}

@@ -40,9 +40,6 @@ const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ ac
       type ContentfulBlogPost {
         theDoggos: [ContentfulDog]
       }
-      type ContentfulDog {
-          name: String
-      }
   `;
 
   createTypes(typeDefs);

@@ -1,6 +1,6 @@
 import path from 'path';
 import type { GatsbyNode } from 'gatsby';
-
+import { getGraphqlTypes } from './contentful-generate-graphql/get-graphql-types';
 const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -16,7 +16,7 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
     `;
   const blogs: {
     errors?: any;
-    data?: { allContentfulBlogPost:{nodes: { id: string; slug: string }[] }};
+    data?: { allContentfulBlogPost: { nodes: { id: string; slug: string }[] } };
   } = await graphql(queryString);
 
   if (!blogs.errors && blogs.data) {
@@ -32,4 +32,17 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   }
 };
 
-export {createPages}
+const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+  async ({ actions, schema }) => {
+    const { createTypes } = actions;
+
+    const typeDef = `
+         type ContentfulRichText {
+      raw: String
+      references: [Node] @link(from: "references___NODE")
+    }
+`;
+    createTypes(typeDef);
+    createTypes(await getGraphqlTypes(schema, createTypes));
+  };
+export { createPages, createSchemaCustomization };

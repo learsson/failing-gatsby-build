@@ -1,0 +1,158 @@
+[
+  {
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "4f08xp11mhvg" }
+      },
+      "id": "blogPost",
+      "type": "ContentType",
+      "createdAt": "2022-09-12T09:11:28.045Z",
+      "updatedAt": "2023-01-26T09:30:09.117Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 10
+    },
+    "displayField": "title",
+    "name": "BlogPost",
+    "description": "",
+    "fields": [
+      {
+        "id": "slug",
+        "name": "slug",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "title",
+        "name": "Title",
+        "type": "Symbol",
+        "localized": true,
+        "required": true,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "body",
+        "name": "Body",
+        "type": "RichText",
+        "localized": true,
+        "required": false,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "category",
+        "name": "Category",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "theDoggos",
+        "name": "Thedoggos",
+        "type": "Array",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Link",
+          "validations": [{ "linkContentType": ["dog"] }],
+          "linkType": "Entry"
+        }
+      }
+    ]
+  },
+  {
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "4f08xp11mhvg" }
+      },
+      "id": "dog",
+      "type": "ContentType",
+      "createdAt": "2023-01-12T13:59:09.357Z",
+      "updatedAt": "2023-01-26T17:59:35.598Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 5
+    },
+    "displayField": "internalName",
+    "name": "Dog",
+    "description": null,
+    "fields": [
+      {
+        "id": "internalName",
+        "name": "Internalname",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "name",
+        "name": "Name",
+        "type": "Symbol",
+        "localized": false,
+        "required": true,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "numberOfLegs",
+        "name": "Number of legs",
+        "type": "Integer",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "headshot",
+        "name": "Headshot",
+        "type": "Link",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false,
+        "linkType": "Asset"
+      }
+    ]
+  },
+  {
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "4f08xp11mhvg" }
+      },
+      "id": "empty",
+      "type": "ContentType",
+      "createdAt": "2023-01-27T08:06:17.625Z",
+      "updatedAt": "2023-01-27T08:06:17.625Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1
+    },
+    "displayField": "alsoEmpty",
+    "name": "EMPTY",
+    "description": "",
+    "fields": [
+      {
+        "id": "alsoEmpty",
+        "name": "Also empty",
+        "type": "Symbol",
+        "localized": false,
+        "required": false,
+        "disabled": false,
+        "omitted": false
+      }
+    ]
+  }
+]
